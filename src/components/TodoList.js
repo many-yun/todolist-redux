@@ -5,6 +5,7 @@ import * as S from './styles/TodoList.styles.js';
 import TodoItem from './TodoItem.js';
 import { useSelector } from 'react-redux';
 
+// Todo Item을 맵핑한 목록
 const TodoList = () => {
    const todos = useSelector((state) => state.todos);
    console.log(todos);

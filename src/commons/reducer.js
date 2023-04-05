@@ -11,13 +11,18 @@ export const reducer = (state = initialState, action) => {
       };
    } else if (action.type === DEL_TODO) {
       return {
-         todos: [...state.todos.filter((todo) => todo.id !== action.id)],
+         todos: state.todos.filter((todo) => todo.id !== action.id),
+      };
+   } else if (action.type === UPDATE_TODO) {
+      return {
+         ...state,
+         todos: state.todos.map((todo) => (todo.id === action.id ? { ...todo, title: action.title } : todo)),
       };
    } else if (action.type === TOGGLE_TODO) {
       return {
-         todos: [...state.todos],
+         ...state,
+         todos: state.todos.map((todo) => (todo.id === action.id ? { ...todo, isComplete: !todo.isComplete } : todo)),
       };
-   } else if (action.type === UPDATE_TODO) {
    } else {
       return state;
    }

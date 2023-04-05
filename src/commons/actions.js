@@ -1,7 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const DEL_TODO = 'DEL_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 let id = 1;
 
@@ -23,16 +23,19 @@ export const delTodo = (id) => {
    };
 };
 
-export const toggleTodo = (id) => {
+export const updateTodo = (id, title) => {
    return {
-      type: TOGGLE_TODO,
-      id,
+      type: UPDATE_TODO,
+      todo: {
+         id: id,
+         title: title,
+      },
    };
 };
 
-export const updateTodo = (id, todo) => {
+export const toggleTodo = (id) => {
    return {
-      type: UPDATE_TODO,
+      type: TOGGLE_TODO,
       id,
    };
 };

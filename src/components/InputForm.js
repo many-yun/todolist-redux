@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import * as S from './styles/InputForm.styles';
 import { addTodo } from '../commons/actions';
 
+// 인풋창 컴포넌트
 const InputForm = () => {
    const dispatch = useDispatch();
 
