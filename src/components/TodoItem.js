@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
+import { delTodo, toggleTodo, updateTodo } from '../commons/actions';
 
 import * as S from './styles/TodoItem.styles';
-import { delTodo, toggleTodo, updateTodo } from '../commons/actions';
 
 // 목록 하나의 컴포넌트
 const TodoItem = ({ todo }) => {
@@ -28,24 +28,51 @@ const TodoItem = ({ todo }) => {
       }
    };
 
+   const handleKeyPress = (e) => {
+      if (e.key === 'Enter' && !readOnly) {
+         updateClick();
+      }
+   };
+
    return (
       <S.Container>
          <S.TextColumn>
-            <div>
+            <S.UnCheckBox
+               onClick={toggleClick}
+               style={isComplete === true ? { display: 'none' } : { display: 'inline-block' }}
+            />
+            <S.CheckBox
+               onClick={toggleClick}
+               style={isComplete === true ? { display: 'inline-block' } : { display: 'none' }}
+            />
+            <S.TextWrapper>
                <S.Text
                   readOnly={readOnly}
-                  style={isComplete === true ? { textDecoration: 'line-through', color: '#ccc' } : {}}
+                  style={
+                     isComplete === true
+                        ? { textDecoration: 'line-through', color: '#ccc' }
+                        : !readOnly
+                        ? { fontWeight: 'bold' }
+                        : {}
+                  }
                   defaultValue={title}
                   ref={updateInput}
+                  onKeyDown={handleKeyPress}
                />
-            </div>
-            <S.M onClick={updateClick} style={isComplete === true ? { color: '#ccc' } : {}}>
-               {readOnly ? '수정' : '완료'}
-            </S.M>
-            <S.O onClick={toggleClick} style={isComplete === true ? { color: '#ccc' } : {}}>
-               {'완료'}
-            </S.O>
-            <S.X onClick={handleClick}>{'삭제'}</S.X>
+            </S.TextWrapper>
+            <S.Buttons>
+               <S.PencilSquare
+                  onClick={updateClick}
+                  style={
+                     isComplete === true
+                        ? { color: '#aaa', cursor: 'default' }
+                        : readOnly
+                        ? { color: '#333' }
+                        : { color: '#999' }
+                  }
+               />
+               <S.X onClick={handleClick} />
+            </S.Buttons>
          </S.TextColumn>
       </S.Container>
    );

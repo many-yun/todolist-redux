@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
    width: 400px;
-   padding: 30px;
+   padding: 0px 30px;
 
    display: flex;
    flex-direction: column;
@@ -10,5 +10,9 @@ export const Container = styled.div`
    background: white;
 
    border-radius: 15px;
-   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.34);
+   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
+   & > div:first-child {
+      border-top: 1px solid #eee;
+   }
 `;
