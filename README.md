@@ -2,7 +2,9 @@
 
 참조 : https://wonit.tistory.com/514
 
-추가, 삭제 기능 참조 후 수정, 완료 기능 추가
+추가, 삭제 기능 참조 후 수정, 완료 기능 추가</br>
+
+<b>배포 사이트 : https://many-yun.github.io/todolist-redux/<br><br></b>
 
 ![VAP 1080p Desktop 2023 04 06 - 23 50 15 02](https://user-images.githubusercontent.com/92010078/230421329-510699f5-f984-4bb7-8fea-9dc9eb24e9af.gif)
 
